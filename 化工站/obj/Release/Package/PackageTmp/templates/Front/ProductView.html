@@ -1,0 +1,8 @@
+﻿#parse("Front/Head.html")
+<center><h1>产品名称</h1></center>
+<p align="center">
+    #foreach($p in $Model.Products)
+    <img src="$p.ImagePath" alt="Alternate Text" />$p.Name
+    #end
+</p>
+#parse("Front/Foot.html")
