@@ -389,10 +389,6 @@
     <Content Include="ProductView.ashx" />
     <Content Include="Admin\ProductList.ashx" />
     <Content Include="Admin\ProductEdit.ashx" />
-    <Content Include="uploadfile\201311151614471394958" />
-    <Content Include="uploadfile\201311151633480828908.jpg" />
-    <Content Include="uploadfile\201311151634089594387.jpg" />
-    <Content Include="uploadfile\201311151634284064701.jpg" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

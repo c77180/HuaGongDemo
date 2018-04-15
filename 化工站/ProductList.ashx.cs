@@ -23,7 +23,7 @@ namespace 化工站
                 pageNum=Convert.ToInt32(context.Request["pageNum"]);
 
             }
-            DataTable products = SqlHelper.ExecuteDataTable("select * from (select *,row_number() over(order by p.Id asc) as  num  from T_Products p) s where s.num between @Start and @End",
+            DataTable products = SqlHelper.ExecuteDataTable("select * from (select *,row_number() over(order by p.Id asc) as  num  from T_Products p ) s where s.num between @Start and @End",
             new SqlParameter("@Start", (pageNum - 1) * 9 + 1), new SqlParameter("@End", pageNum * 9));
             int totalCount=(int)SqlHelper.ExecuteScalar("select count(*) from T_Products");
             int pageCount=(int)Math.Ceiling(totalCount/9.0);

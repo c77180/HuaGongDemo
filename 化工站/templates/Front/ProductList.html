@@ -6,7 +6,6 @@
         <div class="site-nav"><span>当前位置 : </span><a href="index.html">公司主页</a> &gt;&gt; <a href="products.html" title="产品展示">产品展示</a></div>
         <div class="page-products">
             <ul class="clearfix">
-
                 #foreach($p in $Model.Products)
                 <li><a href="ProductView.ashx?Id=$p.Id" title="$p.Name"><img src="$p.ImagePath" alt="$p.Name" width="210" height="150"><span>$p.Name</span></a></li>
                 #end
@@ -15,19 +14,19 @@
                 <div class="list_info">
                     当前为第$Model.PageNum页,总共$Model.totalCount条
                     <span class="disabled">
-                        &nbsp;&lt;&nbsp;
                         #foreach($page in $Model.PageData)
-                        #if($page.Title==$Model.PageNum)
-                        <span class="current">$page.Title</span>
-                        #else
-                        <a href="$page.Href">$page.Title</a>
-                        #end
+                            #if($page.Title==$Model.PageNum)
+                            <span class="current">$page.Title</span>
+                            #else
+                            <a href="$page.Href">$page.Title</a>
+                            #end
                         #end
                         #if($Model.PageNum<$Model.PageCount) #set($NextPagNum=$Model.PageNum+1)
-                        <a href="ProductList.ashx?PageNum=$NextPagNum">&nbsp;&gt;&nbsp;</a><a href="ProductList.ashx?PageNum=$Model.PageCount">&nbsp;&gt;&gt;&nbsp;</a>
+                        <a href="ProductList.ashx?PageNum=$NextPagNum"></a><a href="ProductList.ashx?PageNum=$Model.PageCount"></a>
+                        #end
                 </div>
             </div>
-            #end
+
         </div>
     </div>
     <div class="page-left">
