@@ -315,6 +315,9 @@
     <Content Include="scripts\ckeditor\skins\v2\skin.js" />
     <Content Include="scripts\ckeditor\skins\v2\templates.css" />
     <Content Include="scripts\ckeditor\themes\default\theme.js" />
+    <Content Include="scripts\css\ddsmoothmenu.css" />
+    <Content Include="scripts\css\reset.css" />
+    <Content Include="scripts\css\webmain.css" />
     <Content Include="scripts\ddsmoothmenu.js" />
     <Content Include="scripts\jquery-1.4.2.min.js" />
     <Content Include="scripts\jquery.KinSlideshow-1.2.1.js" />

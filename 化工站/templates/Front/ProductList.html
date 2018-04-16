@@ -1,6 +1,5 @@
 ﻿#parse("Front/Head.html")
 
-
 <div id="page_main" class="clearfix">
     <div class="page-right">
         <div class="site-nav"><span>当前位置 : </span><a href="index.html">公司主页</a> &gt;&gt; <a href="products.html" title="产品展示">产品展示</a></div>
@@ -13,6 +12,12 @@
             <div class="page_list">
                 <div class="list_info">
                     当前为第$Model.PageNum页,总共$Model.totalCount条
+                    <!--完成作业往前翻页 主要时间浪费在nvolicity上一用减法就出问题，还没有找到原因-->
+                    #if($Model.PageNum>1) 
+                    <a href="ProductList.ashx?PageNum=1">&nbsp;&lt;&lt;&nbsp;</a><a href="ProductList.ashx?PageNum=$Model.Pre">&nbsp;&lt;&nbsp;</a>
+                    #else
+                    <span class="disabled">&nbsp;&lt;&lt;&nbsp;</span><span class="disabled">&nbsp;&lt;&nbsp;</span>
+                    #end
                     <span class="disabled">
                         #foreach($page in $Model.PageData)
                             #if($page.Title==$Model.PageNum)
@@ -21,10 +26,13 @@
                             <a href="$page.Href">$page.Title</a>
                             #end
                         #end
+                    </span>
                         #if($Model.PageNum<$Model.PageCount) #set($NextPagNum=$Model.PageNum+1)
-                        <a href="ProductList.ashx?PageNum=$NextPagNum"></a><a href="ProductList.ashx?PageNum=$Model.PageCount"></a>
+                        <a href="ProductList.ashx?PageNum=$NextPagNum">&nbsp;&gt;&nbsp;</a><a href="ProductList.ashx?PageNum=$Model.PageCount">&nbsp;&gt;&gt;&nbsp;</a>
+                        #else
+                        <span class="disabled">&nbsp;&gt;&nbsp;</span><span class="disabled">&nbsp;&gt;&gt;&nbsp;</span>
                         #end
-                </div>
+</div>
             </div>
 
         </div>
