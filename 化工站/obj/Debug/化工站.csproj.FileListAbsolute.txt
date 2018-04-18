@@ -26,3 +26,10 @@ E:\backAllDesk\word文档\化工站\化工站\化工站\化工站\obj\Debug\化�
 C:\Users\DHX\Desktop\word文档\化工站\化工站\化工站\化工站\obj\Debug\化工站.csprojResolveAssemblyReference.cache
 C:\Users\DHX\Desktop\word文档\化工站\化工站\化工站\化工站\obj\Debug\化工站.csproj.CoreCompileInputs.cache
 C:\Users\DHX\Desktop\word文档\化工站\化工站\化工站\化工站\obj\Debug\化工站.csproj.CopyComplete
+C:\Users\dc\Desktop\HuaGongDemo\化工站\bin\化工站.dll.config
+C:\Users\dc\Desktop\HuaGongDemo\化工站\bin\化工站.dll
+C:\Users\dc\Desktop\HuaGongDemo\化工站\bin\化工站.pdb
+C:\Users\dc\Desktop\HuaGongDemo\化工站\bin\NVelocity.dll
+C:\Users\dc\Desktop\HuaGongDemo\化工站\obj\Debug\化工站.dll
+C:\Users\dc\Desktop\HuaGongDemo\化工站\obj\Debug\化工站.pdb
+C:\Users\dc\Desktop\HuaGongDemo\化工站\obj\Debug\化工站.csprojResolveAssemblyReference.cache

@@ -21,7 +21,7 @@ namespace 化工站
         /// <param name="sqlText">执行的sql脚本</param>
         /// <param name="parameters">参数集合</param>
         /// <returns>受影响的行数</returns>
-        public static int ExecuteNonQuery(string sqlText, params SqlParameter[] parameters)
+        public static object ExecuteNonQuery(string sqlText, params SqlParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(GetSqlConnectionString()))
             {
@@ -30,7 +30,7 @@ namespace 化工站
                     conn.Open();
                     cmd.CommandText = sqlText;
                     cmd.Parameters.AddRange(parameters);
-                    return cmd.ExecuteNonQuery();
+                   return cmd.ExecuteNonQuery();
                 }
             }
         }

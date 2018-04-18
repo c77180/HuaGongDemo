@@ -370,6 +370,9 @@
       <DependentUpon>ProductList.ashx</DependentUpon>
     </Compile>
     <Compile Include="CommonHelper.cs" />
+    <Compile Include="ProductComment.ashx.cs">
+      <DependentUpon>ProductComment.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ProductList.ashx.cs">
       <DependentUpon>ProductList.ashx</DependentUpon>
     </Compile>
@@ -392,6 +395,7 @@
     <Content Include="ProductView.ashx" />
     <Content Include="Admin\ProductList.ashx" />
     <Content Include="Admin\ProductEdit.ashx" />
+    <Content Include="ProductComment.ashx" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

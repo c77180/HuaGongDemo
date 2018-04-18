@@ -1,8 +1,62 @@
 ﻿#parse("Front/Head.html")
-<center><h1>产品名称</h1></center>
+
+
 <p align="center">
-    #foreach($p in $Model.Products)
-    <img src="$p.ImagePath" alt="Alternate Text" />$p.Name
-    #end
+    <table>
+        #foreach($p in $Model.Products)
+        <tr text="center"><h1>产品名称 :$p.Name</h1></tr>
+        <tr><img src="$p.ImagePath" alt="Alternate Text" /></tr>
+        <tr><ul id="getUrl"></ul></tr>
+        <tr>title:<input type="text" name="title" id="title" value="" /></tr> 
+        <tr>内容:<input type="text" name="context" id="context" value="" /></tr>
+        <tr><button id="btnSubmit" onclick="loadXMLDoc()">提交</button></tr>
+        <tr><button id="btnLoad" onclick="Loadit()">加载</button></tr>
+    </table>
+    <script>
+        $(function () {
+            Loadit();
+        })
+        function loadXMLDoc() {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4) {
+                    if (xmlHttp.status == 200) {
+                        alert("提交成功");
+                        $("#title").val("");
+                        $("#context").val("");
+                        Loadit();
+                    }
+                }
+            }
+            var title = $("#title").val();
+            var context = $("#context").val();
+            xmlHttp.open("post", "ProductComment.ashx?Action=PostComment&ProductId=$p.Id&Title=" + title+"&Msg="+context);
+            xmlHttp.send();
+        }
+
+        function Loadit() {
+            $("ul").html("");
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function () {
+                if (xmlHttp.readyState == 4) {
+                    if (xmlHttp.status == 200) {
+                        var res = JSON.parse(xmlHttp.response);
+                        for (var i = 0; i < res.length; i++) {
+                            var ul = document.getElementById("getUrl");
+                            var li = document.createElement("li");
+                            ul.appendChild(li);
+                            $(li).append(res[i].Title + ":" + res[i].Msg + ":" + res[i].CreateDateTime);
+                            console.log(res[i].Title);
+                        }
+
+                    }
+                }
+            }
+            xmlHttp.open("post", "ProductComment.ashx?Action=Load&ProductId=$p.Id");
+            xmlHttp.send();
+        }
+    </script>
+    #end 
 </p>
+
 #parse("Front/Foot.html")
