@@ -1,1 +1,6 @@
-.vs/
+﻿.vs/
+化工站/obj/
+化工站/bin/
+化工站/Web.config
+化工站.sln.DotSettings.user
+
