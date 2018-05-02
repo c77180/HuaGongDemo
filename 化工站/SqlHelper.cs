@@ -89,5 +89,10 @@ namespace 化工站
             //CommandBehavior.CloseConnection当SqlDataReader释放的时候，顺便把SqlConnection对象也释放掉
             return cmd.ExecuteReader(CommandBehavior.CloseConnection);
         }
+
+        public static DataTable GetCategory()
+        {
+           return SqlHelper.ExecuteDataTable("select * from T_ProductCategories");
+        }
     }
 }

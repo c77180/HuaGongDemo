@@ -9,9 +9,9 @@
 <meta name="Identifier-URL" content="http://www.netgather.com" />
 <link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="Bookmark" href="/favicon.ico" type="image/x-icon" />
-<link href="/scripts/css/reset.css" rel="stylesheet" type="text/css" />
-<link href="/scripts/css/webmain.css" rel="stylesheet" type="text/css" />
-<link href="/scripts/css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
+<link href="/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="/css/webmain.css" rel="stylesheet" type="text/css" />
+<link href="/css/ddsmoothmenu.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="scripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="scripts/jquery.KinSlideshow-1.2.1.js"></script>
 <script type="text/javascript" src="scripts/webtry_roll.js"></script>
@@ -33,10 +33,29 @@
     <div id="lang"><a href="javascript:if(confirm('只有企业版才有多语言功能，请点击确定访问netgather.com咨询。')){location.href='http://www.netgather.com'}"><img src="images/gb.gif" width="16" height="11" alt="English" />English</a></div>
   </div>
   <div id="MainMenu" class="ddsmoothmenu">
-    <ul>
-      <li><a href="index.html" title="公司主页"><span>公司主页</span></a></li>
-      <li><a href="single.html" title="关于我们" id="menu_selected"><span>关于我们</span></a><ul class="menulevel"><li><a href="single.html" title="组织构架">组织构架</a></li><li><a href="single.html" title="公司历史">公司历史</a></li><li><a href="single.html" title="联系我们">联系我们</a></li></ul></li><li><a href="products.html" title="产品展示"><span>产品展示</span></a><ul class="menulevel"><li><a href="products.html" title="医药原料及中间体">医药原料及中间体</a></li><li><a href="products.html" title="无机化工产品">无机化工产品</a></li><li><a href="products.html" title="香精香料及植物提取物">香精香料及植物提取物</a></li><li><a href="products.html" title="食品化工产品">食品化工产品</a></li><li><a href="products.html" title="有机化工产品">有机化工产品</a></li><li><a href="products.html" title="农资化工产品">农资化工产品</a></li></ul></li><li><a href="news.html" title="新闻中心"><span>新闻中心</span></a></li><li><a href="jobs.html" title="招聘信息"><span>招聘信息</span></a></li><li><a href="guestbook.html" title="留言反馈"><span>留言反馈</span></a></li><li><a href="http://www.netgather.com" target="_blank" title="网聚网"><span>网聚网</span></a></li>
-    </ul>
+      <ul>
+          <li><a href="index.html" title="公司主页"><span>公司主页</span></a></li>
+          <li>
+              <a href="single.html" title="关于我们" ><span>关于我们</span></a>
+              <ul class="menulevel">
+                  <li><a href="single.html" title="组织构架">组织构架</a></li>
+                  <li><a href="single.html" title="公司历史">公司历史</a></li>
+                  <li><a href="single.html" title="联系我们">联系我们</a></li>
+              </ul>
+          </li>
+          <li>
+            <a href="ProductList.ashx" title="产品展示"><span>产品展示</span></a>
+            <ul class="menulevel">
+                #foreach($pc in $Model.Categories)
+              <li><a href="ProductList.ashx?CategoryId=$pc.Id" title="$pc.Name">$pc.Name</a></li>
+                #end
+            </ul>
+          </li>
+          <li><a href="news.html" title="新闻中心"><span>新闻中心</span></a></li>
+          <li><a href="jobs.html" title="招聘信息"><span>招聘信息</span></a></li>
+          <li><a href="guestbook.html" title="留言反馈"><span>留言反馈</span></a></li>
+          <li><a href="http://www.netgather.com" target="_blank" title="网聚网"><span>网聚网</span></a></li>
+      </ul>
   </div>
 <script type="text/javascript">
     $(function () {
