@@ -49,7 +49,8 @@ namespace 化工站
 			    pageData[i]=new {Href="ProductList.ashx?PageNum="+(i+1),Title=(i+1)};
 			}
 
-           var data = new {Categories= SqlHelper.GetCategory().Rows, Products = products.Rows, PageData = pageData, totalCount = totalCount,Pre= pre, PageNum = pageNum, PageCount=pageCount};
+           var data = new {Categories= SqlHelper.GetCategory().Rows, Products = products.Rows, PageData = pageData, totalCount = totalCount,Pre= pre, PageNum = pageNum,
+               PageCount =pageCount,Settings=CommonHelper.GetSettings()};
             string html = CommonHelper.RenderHtml("Front/ProductList.html", data);
             context.Response.Write(html);
         }

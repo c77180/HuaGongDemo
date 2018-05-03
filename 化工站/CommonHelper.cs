@@ -2,6 +2,9 @@
 using NVelocity;
 using NVelocity.App;
 using NVelocity.Runtime;
+using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 
 namespace 化工站
@@ -29,5 +32,40 @@ namespace 化工站
                 string html = vltWriter.GetStringBuilder().ToString();
                 return html;
         }
+        public static object GetSettings()
+        {
+            string siteName = CommonHelper.ReadSetting("SiteName");
+            string siteURL = CommonHelper.ReadSetting("SiteURL");
+            string address = CommonHelper.ReadSetting("Address");
+            string postCode = CommonHelper.ReadSetting("PostCode");
+            string contactPerson = CommonHelper.ReadSetting("ContactPerson");
+            string telPhone = CommonHelper.ReadSetting("TelPhone");
+            string fax = CommonHelper.ReadSetting("Fax");
+            string mobile = CommonHelper.ReadSetting("Mobile");
+            string email = CommonHelper.ReadSetting("Email");
+
+            var data = new { SiteName = siteName, SiteURL = siteURL, Address = address, PostCode = postCode, ContactPerson = contactPerson, TelPhone = telPhone, Fax = fax, Mobile = mobile, Email = email };
+            return data;
+        }
+
+        public static string ReadSetting(string name)
+        {
+            DataTable dt = SqlHelper.ExecuteDataTable("select value from T_Settings where Name=@Name", new SqlParameter("@Name", name));
+            if (dt.Rows.Count <= 0)
+            {
+                throw new Exception("找不到Name=" + name + "的配置项");
+            }
+            else if (dt.Rows.Count > 1)
+            {
+                throw new Exception("找到多条Name=" + name + "的配置项");
+            }
+            return (string)dt.Rows[0]["Value"];
+        }
+
+        public static void WriteSetting(string name, string value)
+        {
+            SqlHelper.ExecuteNonQuery("Update T_Settings set Value=@Value where Name=@Name", new SqlParameter("@Value", value), new SqlParameter("@Name", name));
+        }
     }
+   
 }

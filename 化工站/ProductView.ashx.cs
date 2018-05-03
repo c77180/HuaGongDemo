@@ -29,7 +29,7 @@ namespace 化工站
             }
             else
             {
-                var dt=new {Products=data.Rows};
+                var dt=new {Products=data.Rows,Settings = CommonHelper.GetSettings() };
                 string html = CommonHelper.RenderHtml("Front/ProductView.html", dt);
                 context.Response.Write(html);
             }

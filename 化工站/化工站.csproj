@@ -327,6 +327,7 @@
     <Content Include="templates\Admin\ProductEdit.html" />
     <Content Include="templates\Admin\ProductList.html" />
     <Content Include="templates\Admin\ProductView.html" />
+    <Content Include="templates\Admin\Setting.html" />
     <Content Include="templates\Front\Foot.html" />
     <Content Include="templates\Front\Head.html" />
     <Content Include="templates\Front\Index.html" />
@@ -386,6 +387,9 @@
     <Compile Include="scripts\ProductView.ashx.cs">
       <DependentUpon>ProductView.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\Setting.ashx.cs">
+      <DependentUpon>Setting.ashx</DependentUpon>
+    </Compile>
     <Compile Include="SqlHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -397,6 +401,7 @@
     <Content Include="Admin\ProductEdit.ashx" />
     <Content Include="ProductComment.ashx" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <Content Include="Admin\Setting.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
