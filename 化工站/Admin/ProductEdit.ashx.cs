@@ -5,18 +5,20 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 
 namespace 化工站.Admin
 {
     /// <summary>
     /// ProductEdit 的摘要说明
     /// </summary>
-    public class ProductEdit : IHttpHandler
+    public class ProductEdit : IHttpHandler, IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/html";
+            CommonHelper.GetSession(context);
             bool isPostBack = !string.IsNullOrEmpty(context.Request["isPostBack"]);
              string action = context.Request["Action"];
             if (isPostBack)

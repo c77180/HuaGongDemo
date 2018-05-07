@@ -4,17 +4,19 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 
 namespace 化工站.Admin
 {
     /// <summary>
     /// ProductList 的摘要说明
     /// </summary>
-    public class ProductList : IHttpHandler
+    public class ProductList : IHttpHandler,IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
         {
+            CommonHelper.GetSession(context);
             context.Response.ContentType = "text/html";
             int pageNum = 1;
             if (context.Request["PageNum"] != null)

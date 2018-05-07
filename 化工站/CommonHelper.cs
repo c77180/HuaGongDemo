@@ -6,6 +6,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Web;
 
 namespace 化工站
 {
@@ -65,6 +66,14 @@ namespace 化工站
         public static void WriteSetting(string name, string value)
         {
             SqlHelper.ExecuteNonQuery("Update T_Settings set Value=@Value where Name=@Name", new SqlParameter("@Value", value), new SqlParameter("@Name", name));
+        }
+
+        public static void GetSession(HttpContext context)
+        {
+            if (context.Session["uid"]==null)
+            {
+                context.Response.Redirect("Login.ashx");
+            }
         }
     }
    

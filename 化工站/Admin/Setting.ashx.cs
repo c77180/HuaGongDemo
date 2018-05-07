@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 
 namespace 化工站
 {
     /// <summary>
     /// Setting 的摘要说明
     /// </summary>
-    public class Setting : IHttpHandler
+    public class Setting : IHttpHandler, IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/html";
-            
-           bool hasSave=!string.IsNullOrEmpty(context.Request["Save"]);
+            CommonHelper.GetSession(context);
+            bool hasSave=!string.IsNullOrEmpty(context.Request["Save"]);
             if (hasSave)
             {
                 string siteName = context.Request["SiteName"];
